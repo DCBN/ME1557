@@ -1,1 +1,1 @@
-nodemon
+nodemon -e js,html
