@@ -1,1 +1,1 @@
-nodemon -e js,html
+nodemon app.js -e js,html
