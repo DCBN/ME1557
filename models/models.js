@@ -2,23 +2,26 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var Theme = new Schema({
-    id: //,
+    _id: Schema.Types.ObjectId
 	name: String,
     imgUrl: String,
-    tags: String
+    tags: String,
+    unique: true
 });
 
 var Object = new Schema({
-    id: //,
+    _id: Schema.Types.ObjectId
     name: String,
     imgUrl: String,
     desc: String,
-    tags: Array   
+    tags: Array, 
+    unique: true 
 });
 
 var Tag = new Schema({
-   id: //,
+   _id: Schema.Types.ObjectId,
    name: String, 
+   unique: true
 });
 
 mongoose.model('scenes', scenesSchema);
