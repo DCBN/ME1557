@@ -7,5 +7,7 @@ import about from './components/about';
 import gallery from './components/gallery';
 import tour from './components/tour';
 import theme from './components/theme';
+import admin from './components/admin';
 
-angular.module('app', [uirouter, home, about, gallery, tour, theme]).config(routing);
+import './core.scss';
+angular.module('app', [uirouter, home, about, gallery, tour, theme, admin]).config(routing);

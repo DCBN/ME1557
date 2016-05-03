@@ -39,3 +39,4 @@ jspm_packages
 # Remove public
 public
 .tern-port
+.DS_Store
