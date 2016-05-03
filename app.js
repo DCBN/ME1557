@@ -1,5 +1,9 @@
 const express = require('express');
+const mongoose = require('mongoose');
+require('./models/models');
 const app = express();
+
+mongoose.connect('mongodb://localhost/marinmuseum');
 
 app.use('/static', express.static('public'));
 
