@@ -15,28 +15,19 @@ class AdminController {
     }
 
     save(name, url) {
-        /*
-         * Skicka data till route
-         * Just nu får vi inte datan som vi skickar i (Send)
-         * Når aldrig slutet av funktionen
-         * "Promise kan vara onödigt"
-         */
-        console.log(name + url);
-        return new Promise((resolve, reject) => {
         request
-            .post('/api/saveTheme')
-                .send({name: 'Something'})
-                .on('error', (error) => {
-                    reject(error);
-                })
-                .end((err, res) => {
-                    if(err) {
-                        console.log(err);
-                    } else {
-                        console.log('Success: ' + res);
-                    }
-                });
-        });
+	    .post('/api/saveTheme')
+            .send({ name: name, imgUrl: url})
+            .on('error', (error) => {
+                reject(error);
+            })
+            .end((err, res) => {
+                if(err) {
+                    console.log(err);
+                } else {
+		    console.log('Theme: ' + res.body.name + ' created');
+		}
+            });
     }
 
 }

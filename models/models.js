@@ -6,9 +6,9 @@ const themeSchema = new Schema({
         type: Schema.Types.ObjectId,
         unique: true
     },
-	  name: String,
+    name: String,
     imgUrl: String,
-    tags: String
+    tags: Array 
 });
 
 const objectSchema = new Schema({

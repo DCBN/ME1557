@@ -1,12 +1,14 @@
 const express = require('express');
 const mongoose = require('mongoose');
 require('./models/models');
+const bodyParser = require('body-parser');
 const app = express();
 const apiRouter = express.Router();
 
 mongoose.connect('mongodb://localhost/marinmuseum');
 
 app.use('/static', express.static('public'));
+app.use(bodyParser.json());
 app.use('/api', apiRouter);
 require('./routes/api/apiRoutes')(apiRouter);
 
