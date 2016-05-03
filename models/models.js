@@ -1,15 +1,27 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-//CHANGE
-var scenesSchema = new Schema({
-	scene: String,
-	text: String,
-	bild: String,
-	val1: String,
-	val1text: String,
-	val2: String,
-	val2text: String
+var Theme = new Schema({
+    _id: Schema.Types.ObjectId
+	name: String,
+    imgUrl: String,
+    tags: String,
+    unique: true
+});
+
+var Object = new Schema({
+    _id: Schema.Types.ObjectId
+    name: String,
+    imgUrl: String,
+    desc: String,
+    tags: Array, 
+    unique: true 
+});
+
+var Tag = new Schema({
+   _id: Schema.Types.ObjectId,
+   name: String, 
+   unique: true
 });
 
 mongoose.model('scenes', scenesSchema);
