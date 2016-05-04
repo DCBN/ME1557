@@ -3,33 +3,54 @@ import request from 'superagent';
 class AdminController {
 
     constructor() {
-        this.themeName;
-        this.themeImgurl;
+	this.getAllThemes();
+	
     }
 
-    setVars() {
+    setTheme() {
         const name = this.themeName;
         const imgurl = this.themeImgurl;
-        console.log('Name: ' + name + ' imgurl: ' + imgurl);
-        this.save(name, imgurl);
+	const theme = { name: name, imgUrl: imgurl };
+	const url = '/api/saveTheme';
+	this.save(theme, url);
     }
 
-    save(name, url) {
+    setObject() {
+	const name = this.objectName;
+	const imgurl = this.objectImgurl;
+	const desc = this.objectDesc;
+	const object = { name: name, imgurl: imgurl, desc: desc };
+	const url = '/api/saveObject';
+	this.save(object, url);
+    }
+
+    save(object, url) {
         request
-	    .post('/api/saveTheme')
-            .send({ name: name, imgUrl: url})
-            .on('error', (error) => {
-                reject(error);
-            })
+	    .post(url)
+            .send(object)
             .end((err, res) => {
                 if(err) {
                     console.log(err);
                 } else {
-		    console.log('Theme: ' + res.body.name + ' created');
+		    console.log('Successfully saved into DB');
 		}
             });
     }
 
+    getAllThemes() {
+	request
+	    .get('/api/getThemes')
+	    .end((err, res) => {
+		if(err) {
+		    console.log(err);
+		} else {
+		    console.log(res.body);
+		    this.themes = res.body;
+		}
+	    });
+    }
 }
+	   
+    
 
 export default AdminController;

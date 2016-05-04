@@ -17,7 +17,7 @@ const objectSchema = new Schema({
         unique: true
     },
     name: String,
-    imgUrl: String,
+    imgurl: String,
     desc: String,
     tags: Array
 });
