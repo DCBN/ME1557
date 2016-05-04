@@ -11,6 +11,7 @@
   <input type="text" name="object-imgurl" placeholder="imgurl" ng-model="admin.objectImgurl" />
   <textarea name="object-desc" placeholder="description" ng-model="admin.objectDesc"></textarea>
   <input type="submit" placeholder="submit" ng-click="admin.setObject()" />
+  <input type="submit" placeholder="check themes" ng-click="admin.name()" /> 
 </div>
 
 <div>
@@ -18,6 +19,6 @@
   <ul ng-repeat="theme in admin.themes">
     <li> {{theme.name}} </li>
     <li> {{theme.imgUrl}} </li>
-  </ul>
+</ul>
   <input type="submit" placeholder="submit" ng-click="admin.getAllThemes()">
 </div>

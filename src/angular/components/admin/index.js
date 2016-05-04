@@ -6,7 +6,9 @@ import AdminController from './admin.controller';
 
 import './admin.scss';
 
-export default angular.module('app.admin', [uirouter])
+import getThemes from '../../services/getThemes.service';
+
+export default angular.module('app.admin', [uirouter, getThemes])
     .config(routing)
     .controller('AdminController', AdminController)
     .name;

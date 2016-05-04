@@ -2,11 +2,17 @@ import request from 'superagent';
 
 class AdminController {
 
-    constructor() {
-	this.getAllThemes();
-	
+    constructor(getThemes) {
+	//this.getAllThemes();
+	this.themes = [];
+	this.getThemes = getThemes;
+	getThemes.getThemes().then(result => this.themes = result.data);
     }
 
+    name() {
+//	this.themes = this.themes.data;
+	console.log(this.themes);
+    }
     setTheme() {
         const name = this.themeName;
         const imgurl = this.themeImgurl;
@@ -51,6 +57,6 @@ class AdminController {
     }
 }
 	   
-    
 
 export default AdminController;
+AdminController.$inject = ['getThemes'];

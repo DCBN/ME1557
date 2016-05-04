@@ -38,10 +38,11 @@ module.exports = (app) => {
 	.get((req, res, next) => {
 	    themeList.find((err ,themes) => {
 		if(err) {
-		    return done(err);
+		    console.log(err);
+		    return false;
 		}
 		if(themes) {
-		    res.send(themes);
+		    res.status(200).json(themes);
 		} else {
 		    next();
 		}
