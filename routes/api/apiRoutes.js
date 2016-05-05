@@ -47,6 +47,22 @@ module.exports = (app) => {
 		    next();
 		}
 	    });
+	    		    
+	});
+    app.route('/getObjects')
+	.get((req, res, next) => {
+	    objectList.find((err, objects) => {
+		if(err) {
+		    console.log(err);
+		    return false;
+		}
+		if(objects) {
+		    res.status(200).json(objects);
+		} else {
+		    next();
+		}
+	    });
 	    
 	});
+
 };
