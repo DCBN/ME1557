@@ -1,0 +1,64 @@
+/* Font imports*/
+@import url(https://fonts.googleapis.com/css?family=Ubuntu:400,700,300,500);
+
+/* Core */
+
+html, body {
+        height: 100%;
+        width: 100%;
+        box-sizing: border-box;
+        font-family: 'Ubuntu', sans-serif;
+}
+*, *::before, *::after {
+        box-sizing: inherit;
+        margin: 0;
+        padding: 0;
+              }
+.container {
+    height: 100%;
+    width: 100%;
+}
+
+/* Home */
+
+.home-wrapper {
+    height: 100%;
+    width: 100%;
+}
+
+.section-top {
+    height: 75%;
+    width: 100%;
+    background: orange;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-bottom {
+    height: 25%;
+    width: 100%;
+}
+
+.subsection {
+    height: 100%;
+    width: 50%;
+    float:left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 2em;
+    color: white;
+    text-transform: uppercase;
+}
+
+.subsection-left {
+    background: blue;
+}
+
+.subsection-right{
+    background: green;
+}
