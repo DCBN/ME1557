@@ -1,23 +1,40 @@
-/* Font imports*/
-@import url(https://fonts.googleapis.com/css?family=Ubuntu:400,700,300,500);
+/* Theme SCSS */
 
-/* Core */
-
-html, body {
-        height: 100%;
-        width: 100%;
-        box-sizing: border-box;
-        font-family: 'Ubuntu', sans-serif;
-}
-*, *::before, *::after {
-        box-sizing: inherit;
-        margin: 0;
-        padding: 0;
-              }
-.container {
+.theme-container {
     height: 100%;
     width: 100%;
+    background: #2F2F2F;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
-/* Tour */
+.item-wrap {
+    height: 200px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
+    &:hover {
+        background: #5E5E5E;
+        transition: .4s ease;
+        cursor: pointer;
+    }
+}
+
+.item-image {
+    height: 150px;
+    width: 150px;
+    background-size: cover;
+    border-radius: 200px; 
+    align-self: center;
+}
+
+.item-name {
+    color: white;
+    font-size: 1em;
+    align-self: center;
+    margin-top: 10px;
+}
