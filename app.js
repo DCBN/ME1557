@@ -12,14 +12,6 @@ app.use(bodyParser.json());
 app.use('/api', apiRouter);
 require('./routes/api/apiRoutes')(apiRouter);
 
-/*app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/views/index.html'); 
-});
-
-app.get('/admin', (req, res) => {
-    res.sendFile(__dirname + '/views/index.html'); 
- });*/
-
 app.get('*', (req, res) => {
     res.sendFile(__dirname + '/views/index.html'); 
 });

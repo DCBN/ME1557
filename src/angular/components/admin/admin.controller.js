@@ -1,7 +1,7 @@
 class AdminController {
 
     constructor(themeService, objectService) {
-	
+
 	this.themeService = themeService;
 	this.objectService = objectService;
 	themeService.getAll().then(result => this.themes = result.data);

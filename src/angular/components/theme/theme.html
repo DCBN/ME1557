@@ -1,7 +1,8 @@
-<div>
-  Theme Page 
-</div>
-<div ng-repeat="theme in theme.themes">
-  <img src="{{theme.img}}" height="100" width="100">
-  <li>{{theme.name}}</li>
+<div class="theme-container">
+  <div ng-repeat="theme in theme.themes">
+    <div class="item-wrap">
+      <img src="{{theme.imgUrl}}" class="item-image">
+      <span class="item-name">{{theme.name}}</span>
+    </div>
+  </div>
 </div>
