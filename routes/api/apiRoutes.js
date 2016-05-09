@@ -4,33 +4,33 @@ const themeList = db.theme;
 const objectList = db.object;
 
 module.exports = (app) => {
-    app.route('/saveTheme/')
+    app.route('/saveTheme')
 	.post((req, res, next) => {
-	    if(req.body.name && req.body.imgUrl) {
-		const theme = new themeList();
-		theme._id = mongoose.Types.ObjectId();
-		theme.name = req.body.name;
-		theme.imgUrl = req.body.imgUrl;
-		theme.save();
-		res.status(200).end();
+		if(req.body.name && req.body.imgUrl) {
+			const theme = new themeList();
+			theme._id = mongoose.Types.ObjectId();
+			theme.name = req.body.name;
+			theme.imgUrl = req.body.imgUrl;
+			theme.save();
+			res.status(200).end();
 	    } else {
-		next();
+			next();
 	    }
-        });
+	});
 
     app.route('/saveObject')
 	.post((req, res, next) => {
 	    if(req.body.name && req.body.imgurl && req.body.desc) {
-		console.log(req.body);
-		const object = new objectList();
-		object._id = mongoose.Types.ObjectId();
-		object.name = req.body.name;
-		object.imgurl = req.body.imgurl;
-		object.desc = req.body.desc;
-		object.save();
-		res.status(200).end();
+			console.log(req.body);
+			const object = new objectList();
+			object._id = mongoose.Types.ObjectId();
+			object.name = req.body.name;
+			object.imgurl = req.body.imgurl;
+			object.desc = req.body.desc;
+			object.save();
+			res.status(200).end();
 	    } else {
-		next();
+			next();
 	    }
 	});
 
