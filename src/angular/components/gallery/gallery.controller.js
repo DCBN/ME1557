@@ -5,6 +5,5 @@ class GalleryController {
     }
 }
 
-
 export default GalleryController;
 GalleryController.$inject = ['objectService'];
