@@ -11,6 +11,7 @@ module.exports = (app) => {
 			theme._id = mongoose.Types.ObjectId();
 			theme.name = req.body.name;
 			theme.imgUrl = req.body.imgUrl;
+			theme.tags = req.body.tags;
 			theme.save();
 			res.status(200).end();
 	    } else {
@@ -27,6 +28,7 @@ module.exports = (app) => {
 			object.name = req.body.name;
 			object.imgurl = req.body.imgurl;
 			object.desc = req.body.desc;
+			object.tags = req.body.tags;
 			object.save();
 			res.status(200).end();
 	    } else {
@@ -34,33 +36,33 @@ module.exports = (app) => {
 	    }
 	});
 
-    app.route('/getThemes')
+	app.route('/getThemes')
 	.get((req, res, next) => {
 	    themeList.find((err ,themes) => {
-		if(err) {
-		    console.log(err);
-		    return false;
-		}
-		if(themes) {
-		    res.status(200).json(themes);
-		} else {
-		    next();
-		}
+			if(err) {
+				console.log(err);
+				return false;
+			}
+			if(themes) {
+				res.status(200).json(themes);
+			} else {
+				next();
+			}
 	    });
 	    		    
 	});
     app.route('/getObjects')
 	.get((req, res, next) => {
 	    objectList.find((err, objects) => {
-		if(err) {
-		    console.log(err);
-		    return false;
-		}
-		if(objects) {
-		    res.status(200).json(objects);
-		} else {
-		    next();
-		}
+			if(err) {
+				console.log(err);
+				return false;
+			}
+			if(objects) {
+				res.status(200).json(objects);
+			} else {
+				next();
+			}
 	    });
 	    
 	});
