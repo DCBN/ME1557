@@ -1,3 +1,14 @@
-<div>
-  Gallery Page
+<div id="header">
+    <div id="box">
+        <input type="search" placeholder="search..." id="search"/>
+    </div>
 </div>
+<div ng-repeat="object in gallery.objects">
+    <li> {{object.name}} </li>
+    <li> {{object.imgUrl}} </li>
+    <li> {{object.desc}} </li>
+    <div ng-repeat="tag in object.tags">
+       <span> {{ tag }} </span>
+    </div>
+</div>
+
