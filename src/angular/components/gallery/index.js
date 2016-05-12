@@ -6,9 +6,7 @@ import GalleryController from './gallery.controller';
 
 import './gallery.scss';
 
-import objectService from '../../services/objects.service';
-
-export default angular.module('app.gallery', [uirouter, objectService])
+export default angular.module('app.gallery', [uirouter])
     .config(routing)
-    .controller('GalleryController', GalleryController)
+    .controller('galleryController', GalleryController)
     .name;

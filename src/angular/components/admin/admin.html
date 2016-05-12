@@ -2,17 +2,17 @@
   <h1> Create Theme </h1>
  <input type="text" name="theme-name" placeholder="name" ng-model="admin.themeName" /> 
  <input type="text" name="theme-imgurl" placeholder="imgurl" ng-model="admin.themeImgurl" />
- <input type="text" name="theme-tags" placeholder="T.ex. Militär, Båt" ng-model="admin.themeTags">
  <input type="submit" placeholder="submit" ng-click="admin.postTheme()" />
 </div>
+
 <div>
   <h1> Create object </h1>
   <input type="text" name="object-name" placeholder="name" ng-model="admin.objectName" />
   <input type="text" name="object-imgurl" placeholder="imgurl" ng-model="admin.objectImgurl" />
   <textarea name="object-desc" placeholder="description" ng-model="admin.objectDesc"></textarea>
-  <input type="text" name="object-tags" placeholder="T.ex. Militär, Båt" ng-model="admin.objectTags" />
   <input type="submit" placeholder="submit" ng-click="admin.postObject()" />
 </div>
+
 <div>
   <h1> Themes </h1>
   <ul ng-repeat="theme in admin.themes">
