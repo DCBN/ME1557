@@ -56,9 +56,27 @@ html, body {
 }
 
 .subsection-left {
-    background: lightgreen;
+    border-radius: 0px 20px 0px 0px;
+    color: white;
+    background-color: dodgerblue;
+    border-right: 2px solid white;
+}
+.subsection-left:hover {
+    color: white;
+    background-color: cornflowerblue;
 }
 
 .subsection-right{
-    background: lightblue;
+    
+   border-radius: 20px 0px 0px 0px;
+    color: white;
+    background-color: dodgerblue;
+    border-left: 2px solid white;
+    
+}
+
+
+.subsection-right:hover {
+    color: white;
+    background-color: cornflowerblue;
 }
