@@ -26,6 +26,17 @@ class objectService {
 			return false;
 	    });
     }
+
+    getObjectsByTag(tags) {
+	return this.$http
+	    .get('/api/getObjectsByTag', { params: {tags: tags}})
+	    .then((result) => {
+		return result;
+	    }, (err) => {
+		console.log(err);
+		return false;
+	    });
+    }
 }
 
 export default angular.module('services.object-service', [])

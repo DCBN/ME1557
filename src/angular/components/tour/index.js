@@ -9,7 +9,7 @@ import './tour.scss';
 import themeService from '../../services/themes.service';
 import objectService from '../../services/objects.service';
 
-export default angular.module('app.tour', [uirouter, themeService])
+export default angular.module('app.tour', [uirouter, themeService, objectService])
     .config(routing)
     .controller('TourController', TourController)
     .name;

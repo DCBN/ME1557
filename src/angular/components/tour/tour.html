@@ -1,4 +1,7 @@
 <div>
   Tour Page
-  <button ng-click="tour.logIt()">Check Theme</button>
+  <div ng-repeat="object in tour.objectsForRender">
+    <li> {{object.name}} </li>
+    <span> {{object.desc}} </span>
+  </div>
 </div>
