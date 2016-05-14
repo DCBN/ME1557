@@ -67,4 +67,20 @@ module.exports = (app) => {
 	    
 	});
 
+    app.route('/getThisTheme')
+	.get((req, res, next) => {
+	    console.log(req.query.theme);
+	    const theme = req.query.theme;
+	    themeList.find({'name': theme}, (err, theme) => {
+		if(err) {
+		    console.log(err);
+		}
+		if(theme) {
+		    res.status(200).json(theme);
+		} else {
+		    next();
+		}
+	    });
+	});
+
 };

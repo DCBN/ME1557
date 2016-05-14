@@ -3,14 +3,14 @@ import angular from 'angular';
 class themeService {
 
     constructor($http) {
-		this.$http = $http;
+	this.$http = $http;
     }
-	
+    
     getAll() {
-		return this.$http
+	return this.$http
 	    .get('/api/getThemes')
 	    .then((result) => {
-			return result;
+		return result;
 	    });
     }
 
@@ -19,11 +19,22 @@ class themeService {
 	this.$http
 	    .post('/api/saveTheme', theme)
 	    .then((resolvedTheme) => {
-			console.log('Success');
-			return true;
+		console.log('Success');
+		return true;
 	    }, (err) => {
-			console.log(err);
-			return false;
+		console.log(err);
+		return false;
+	    });
+    }
+
+    getTheme(theme) {
+	return this.$http
+	    .get('/api/getThisTheme', { params: {theme: theme}})
+	    .then((result) => {
+		return result;
+	    }, (err) => {
+		console.log(err);
+		return false;
 	    });
     }
 }
