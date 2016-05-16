@@ -5,10 +5,11 @@
 </div>
 <div ng-repeat="object in gallery.objects">
     <li> {{object.name}} </li>
-    <li> {{object.imgUrl}} </li>
+    <li> {{object.imgurl}} </li>
     <li> {{object.desc}} </li>
     <div ng-repeat="tag in object.tags">
        <span> {{ tag }} </span>
     </div>
+    <br/>
 </div>
 

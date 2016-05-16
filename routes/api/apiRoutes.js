@@ -22,7 +22,6 @@ module.exports = (app) => {
     app.route('/saveObject')
 	.post((req, res, next) => {
 	    if(req.body.name && req.body.imgurl && req.body.desc) {
-			console.log(req.body);
 			const object = new objectList();
 			object._id = mongoose.Types.ObjectId();
 			object.name = req.body.name;
@@ -67,4 +66,32 @@ module.exports = (app) => {
 	    
 	});
 
+    app.route('/getThisTheme')
+	.get((req, res, next) => {
+	    const theme = req.query.theme;
+	    themeList.find({'name': theme}, (err, theme) => {
+		if(err) {
+		    console.log(err);
+		}
+		if(theme) {
+		    res.status(200).json(theme);
+		} else {
+		    next();
+		}
+	    });
+	});
+
+    app.route('/getObjectsByTag')
+	.get((req, res, next) => {
+	    objectList.find({tags: { $in: req.query.tags}}, (err, objects) => {
+		if(err) {
+		    console.log(err);
+		}
+		if(objects) {
+		    res.status(200).json(objects);
+		} else {
+		    next();
+		}
+	    });
+	});
 };
