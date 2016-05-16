@@ -1,15 +1,15 @@
 <div id="header">
     <div id="box">
-        <input type="search" placeholder="search..." id="search"/>
+        <input type="search" placeholder="Search tags" id="search"/>
     </div>
 </div>
 <div ng-repeat="object in gallery.objects">
     <li> {{object.name}} </li>
-    <li> {{object.imgurl}} </li>
+    <img src="{{object.imgurl}}" alt="Object image"/>
     <li> {{object.desc}} </li>
+    Tags:
     <div ng-repeat="tag in object.tags">
        <span> {{ tag }} </span>
     </div>
-    <br/>
 </div>
 
