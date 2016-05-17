@@ -4,26 +4,15 @@ class GalleryController {
         objectService.getAll().then(result => this.objects = result.data);
     }
     
-    searchById(tags){
-        objectService.getObjectsByTag(tags).then((objects) => {
-		    this.objectsForRender = objects.data;
-		});
-        
-     /*====================== MOVE =====================
-        app.directive('ngEnter', function () {
-            return function (scope, element, attrs) {
-                element.bind("keydown keypress", function (event) {
-                    if(event.which === 13) {
-                        scope.$apply(function (){
-                            scope.$eval(attrs.ngEnter);
-                        });
-
-                        event.preventDefault();
-                    }
-                });
-            };
-        });
-     */
+    searchById($event){
+        if($event.keyCode === 13){
+            var searchTags = this.searchValue;
+            searchTags = searchTags.split(" ");
+            this.objectService.getObjectsByTag(searchTags).then((objects) => {
+                this.objectsForRender = objects.data;
+                console.log(this.objectsForRender);
+            });
+		}
     }
 }
 

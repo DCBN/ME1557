@@ -1,6 +1,6 @@
 <div id="header">
     <div id="box">
-        <input type="search" placeholder="Search tags" id="search"/>
+        <input ng-model="gallery.searchValue" ng-keypress="gallery.searchById($event)" type="search" placeholder="Search tags"  id="search"/>
     </div>
 </div>
 <div ng-repeat="object in gallery.objects">
