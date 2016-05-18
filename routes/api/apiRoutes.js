@@ -84,7 +84,6 @@ module.exports = (app) => {
     app.route('/getObjectsByTag')
 	.get((req, res, next) => {
 		objectList.find({tags: { $in: req.query.tags}}, (err, objects) => {
-		console.log(typeof req.query.tags);
 		if(err) {
 		    console.log(err);
 		}

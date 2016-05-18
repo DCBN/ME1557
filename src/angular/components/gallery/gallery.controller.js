@@ -13,6 +13,7 @@ class GalleryController {
                     this.objects = objects.data;
                 });
             }else{
+                this.objectService.getAll().then(result => this.objects = result.data);
             }
 		}
     }
