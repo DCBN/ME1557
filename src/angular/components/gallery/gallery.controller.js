@@ -4,14 +4,16 @@ class GalleryController {
         objectService.getAll().then(result => this.objects = result.data);
     }
     
-    searchById($event){
+    searchById($event, objectService){
         if($event.keyCode === 13){
-            var searchTags = this.searchValue;
-            searchTags = searchTags.split(" ");
-            this.objectService.getObjectsByTag(searchTags).then((objects) => {
-                this.objectsForRender = objects.data;
-                console.log(this.objectsForRender);
-            });
+            if(this.searchValue){
+                var searchTags = this.searchValue + " ";
+                searchTags = searchTags.split(" ");
+                this.objectService.getObjectsByTag(searchTags).then((objects) => {
+                    this.objects = objects.data;
+                });
+            }else{
+            }
 		}
     }
 }
