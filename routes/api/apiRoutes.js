@@ -4,6 +4,8 @@ const db = require('../../models/models');
 const themeList = db.theme;
 const objectList = db.object;
 
+const decodeQr = require('./qrReader');
+
 module.exports = (app) => {
 
     // Route for saving themes
@@ -133,3 +135,6 @@ module.exports = (app) => {
 	return array;
     };
 };
+
+decodeQr('/home/dcbn/Downloads/qr.png');
+
