@@ -54,7 +54,7 @@ module.exports = (app) => {
 		} else {
 		    next();
 		}
-	    }); 
+	    });
 	});
 
     // Route for retrieving all objects
@@ -136,5 +136,4 @@ module.exports = (app) => {
     };
 };
 
-decodeQr('/home/dcbn/Downloads/qr.png');
-
+decodeQr('C:/Users/Alex/Pictures/qrcodepls.png');

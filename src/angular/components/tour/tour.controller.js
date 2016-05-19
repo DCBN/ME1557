@@ -12,7 +12,8 @@ class TourController {
 		theme = result.data[0];
 		let cookie = {};
 		objectService.getObjectsByTag(theme.tags).then((objects) => {
-		    for(var i = 0; i < objects.data.length; i++) {
+      if(!objects) return false;
+        for(var i = 0; i < objects.data.length; i++) {
 			let question = "question" + Math.floor(i + 1);
 			cookie[question] = {"objectData": objects.data[i], "complete": false};
 		    };
@@ -26,4 +27,3 @@ class TourController {
 }
 
 export default TourController;
-
