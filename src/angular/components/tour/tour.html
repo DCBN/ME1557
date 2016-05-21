@@ -1,6 +1,6 @@
 <div>
   Tour Page
-  <input type="file" accept="image/*;capture=camera" placeholder="Take a pic">
+  <input type="file" name="recfile" accept="image/*;capture=camera" file-upload="tour.qrImage.file"/><button ng-click="tour.postQr()">Post image</button>
   <div ng-repeat="object in tour.objectsForRender">
     <li> {{object.name}} </li>
     <span> {{object.desc}} </span>
