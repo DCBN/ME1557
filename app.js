@@ -21,7 +21,7 @@ app.get('*', (req, res) => {
 });
 
 
-const server = app.listen(8080, 'localhost', () => {
+const server = app.listen(8080, '192.168.1.174', () => {
     const host = server.address().address;
     const port = server.address().port;
     console.log(`Server up and running on ${host}:${port}`);

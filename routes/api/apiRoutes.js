@@ -112,6 +112,7 @@ module.exports = (app) => {
 
   app.route('/qrUpload')
   .post((req, res, next) => {
+    console.log(req.files);
     decodeQr(_base + 'uploadedMaterial/' + req.files[0].filename);
     res.json({success: true});
   })
