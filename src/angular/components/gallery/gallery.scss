@@ -4,10 +4,10 @@
 /* Core */
 
 html, body {
-        height: 100%;
-        width: 100%;
-        box-sizing: border-box;
-        font-family: 'Ubuntu', sans-serif;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
         
 }
 *, *::before, *::after {
@@ -28,9 +28,9 @@ body{
  
 #box{
     background-color: white;
-  margin: 100px auto;
-  width: 300px;
-  height: 50px;
+    margin: 100px auto;
+    width: 300px;
+    height: 50px;
 }
 
 #search {
