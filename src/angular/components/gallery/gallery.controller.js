@@ -8,7 +8,7 @@ class GalleryController {
         if($event.keyCode === 13){
             if(this.searchValue){
                 var searchTags = this.searchValue + " ";
-                searchTags = searchTags.split(" ");
+                searchTags = searchTags.split(", ");
                 this.objectService.getObjectsByTag(searchTags).then((objects) => {
                     this.objects = objects.data;
                 });
