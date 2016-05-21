@@ -13,7 +13,7 @@ app.use('/api', apiRouter);
 require('./routes/api/apiRoutes')(apiRouter);
 
 app.get('*', (req, res) => {
-    res.sendFile(__dirname + '/views/index.html'); 
+    res.sendFile(__dirname + '/views/index.html');
 });
 
 
