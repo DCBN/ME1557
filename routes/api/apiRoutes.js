@@ -5,6 +5,7 @@ const themeList = db.theme;
 const objectList = db.object;
 
 const decodeQr = require('./qrReader');
+const convertImage = require('./imageConversion');
 
 module.exports = (app) => {
 
@@ -112,10 +113,16 @@ module.exports = (app) => {
 
   app.route('/qrUpload')
   .post((req, res, next) => {
-    console.log(req.files);
-    decodeQr(_base + 'uploadedMaterial/' + req.files[0].filename);
-    res.json({success: true});
-  })
+    if(req.files[0].mimetype !== 'image/png') {
+      console.log(req.files[0].mimetype);
+      const image = _base + 'uploadedMaterial/' + req.files[0].filename;
+      convertImage(image);
+      res.json({succes: true});
+    } else {
+      decodeQr(_base + 'uploadedMaterial/' + req.files[0].filename);
+      res.json({success: true});
+    }
+  });
   // Function for array shuffling
   var shuffle = (array) => {
     // Assign variable to the length of the Array
