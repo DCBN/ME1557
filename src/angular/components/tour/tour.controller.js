@@ -18,17 +18,42 @@ class TourController {
             let question = "question" + Math.floor(i + 1);
             cookie[question] = {"objectData": objects.data[i], "complete": false};
           };
-          this.objectsForRender = objects.data;
           $cookies.put('someCookie', JSON.stringify(cookie));
-          let mycookie = $cookies.get('someCookie');
+          this.questionCookie = JSON.parse($cookies.get('someCookie'));
+          this.filterQuestions(this.questionCookie);
         });
       });
     }
   }
 
+  filterQuestions(questions) {
+    for(var key in questions) {
+      if(questions[key].complete !== true) {
+        this.displayCurrentQuestion(questions[key], key);
+        break;
+      }
+    }
+  }
+
+  displayCurrentQuestion(question, questionKey) {
+    this.questionName = question.objectData.name;
+    this.questionImg = question.objectData.imgurl;
+    this.questionDesc = question.objectData.desc;
+    this.questionAnswer = question.objectData.answer;
+    this.questionKey = questionKey;
+  }
+
   postQr() {
     var url = '/api/qrUpload';
-    this.answerService.post(url, this.qrImage);
+    this.answerService.post(url, this.qrImage).then((result) => {
+      this.qrAnswer = result.answer;
+      if(this.qrAnswer === this.questionAnswer) {
+        this.questionCookie[this.questionKey].complete = true;
+        this.filterQuestions(this.questionCookie);
+      } else {
+        console.log('wrong answer');
+      }
+    });
   }
 }
 

@@ -9,14 +9,16 @@ class answerService {
     for(let key in data) {
       fd.append(key, data[key]);
     }
-    this.$http
+    return this.$http
       .post(uploadUrl, fd, {
         transformRequest: angular.identity,
         headers: {'Content-Type': undefined}
+      }).then((result) => {
+        return result.data;
       });
-    }
   }
+}
 
 export default angular.module('services.answer-service', [])
-    .service('answerService', answerService)
-    .name;
+  .service('answerService', answerService)
+  .name;

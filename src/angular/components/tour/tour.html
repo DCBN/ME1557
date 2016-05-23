@@ -1,8 +1,12 @@
 <div>
-  Tour Page
-  <input type="file" name="recfile" accept="image/*;capture=camera" file-upload="tour.qrImage.file"/><button ng-click="tour.postQr()">Post image</button>
-  <div ng-repeat="object in tour.objectsForRender">
-    <li> {{object.name}} </li>
-    <span> {{object.desc}} </span>
+  <div class="questionHeader">
+    <div class="questionName">
+      {{ tour.questionName }}
+    </div>
+    <img class="questionImg" style="height: 100px; width: 100px; background-size:cover;" src="{{ tour.questionImg }}" alt="questionImg">
+    <div class="questionDesc">
+      {{ tour.questionDesc }}
+    </div>
   </div>
+  <input type="file" accept="image/*;capture=camera" file-upload="tour.qrImage.file"/><button ng-click="tour.postQr()">Post image</button>
 </div>

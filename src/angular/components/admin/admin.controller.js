@@ -19,11 +19,11 @@ class AdminController {
     const imgurl = this.objectImgurl;
     const desc = this.objectDesc;
     const tags = this.objectTags.split(", ");
-    const object = { name: name, imgurl: imgurl, desc: desc, tags: tags };
+    const answer = this.objectAnswer;
+    const object = { name: name, imgurl: imgurl, desc: desc, answer: answer, tags: tags };
     this.objectService.saveObject(object);
   }
 }
-
 
 export default AdminController;
 AdminController.$inject = ['themeService', 'objectService'];
