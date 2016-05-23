@@ -1,16 +1,3 @@
-/* Font imports*/
-@import url(https://fonts.googleapis.com/css?family=Ubuntu:400,700,300,500);
-
-/* Core */
-
-html, body {
-        height: 100%;
-        width: 100%;
-        box-sizing: border-box;
-        font-family: 'Ubuntu', sans-serif;
-        
-}
-
 .header {
   width: 100%;
   height: 70px;
@@ -26,11 +13,12 @@ margin:0 auto;
 .search {
   background-color: white;
   width: 400px;
-  height: 75%;
-  border-radius: 5px 5px 5px 5px;
+  height: 100%;
   border: 0;
   padding: 0;
   margin-left: 4px;
+  margin-top: 15px;
   margin-right: 4px;
+  border-radius: 5px 5px 5px 5px;
 }
 

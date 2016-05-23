@@ -136,4 +136,4 @@ module.exports = (app) => {
     };
 };
 
-decodeQr('C:/Users/Alex/Pictures/qrcodepls.png');
+
