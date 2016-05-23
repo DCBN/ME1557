@@ -5,6 +5,7 @@ class themeService {
     constructor($http) {
 	this.$http = $http;
     }
+    
     getAll() {
 	return this.$http
 	    .get('/api/getThemes')
@@ -20,6 +21,17 @@ class themeService {
 	    .then((resolvedTheme) => {
 		console.log('Success');
 		return true;
+	    }, (err) => {
+		console.log(err);
+		return false;
+	    });
+    }
+
+    getTheme(theme) {
+	return this.$http
+	    .get('/api/getThisTheme', { params: {theme: theme}})
+	    .then((result) => {
+		return result;
 	    }, (err) => {
 		console.log(err);
 		return false;

@@ -1,9 +1,16 @@
 
-<div class="header">
+<div id="header">
     <div class="headerContent">
-      <br>
-      <input type="search" placeholder=" Sök..." name="searchbox" class="search">
-      <button type="button" class="button">Sök</button>
+        <input ng-model="gallery.searchValue" ng-keypress="gallery.searchById($event)" type="search" placeholder="Search tags"  id="search"/>
     </div>
-
 </div>
+<div ng-repeat="object in gallery.objects">
+    <li> {{object.name}} </li>
+    <img src="{{object.imgurl}}" alt="Object image"/>
+    <li> {{object.desc}} </li>
+    Tags:
+    <div ng-repeat="tag in object.tags">
+       <span> {{ tag }} </span>
+    </div>
+</div>
+

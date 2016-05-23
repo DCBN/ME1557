@@ -1,3 +1,8 @@
 <div>
   Tour Page
+  <input type="file" accept="image/*;capture=camera" placeholder="Take a pic">
+  <div ng-repeat="object in tour.objectsForRender">
+    <li> {{object.name}} </li>
+    <span> {{object.desc}} </span>
+  </div>
 </div>

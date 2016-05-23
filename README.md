@@ -7,5 +7,6 @@
 4. Skriv npm install webpack -i -g
 5. Skriv webpack
 6. Skriv node app.js
+7. Skriv mongod
 7. Gå till din webbläsare 
 8. I url:en skriv localhost:1337
