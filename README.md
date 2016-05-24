@@ -1,6 +1,5 @@
 # ME1557 
-// NodeJS required
-// MongoDB required
+// NodeJS & MongoDB required
 
 1. Gå till root (ME1557)
 2. Se till att du har webpack installerat globalt
