@@ -47,6 +47,7 @@ class TourController {
     var url = '/api/qrUpload';
     this.answerService.post(url, this.qrImage).then((result) => {
       this.qrAnswer = result.answer;
+      console.log(result);
       if(this.qrAnswer === this.questionAnswer) {
         this.questionCookie[this.questionKey].complete = true;
         this.filterQuestions(this.questionCookie);

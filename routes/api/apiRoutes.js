@@ -118,8 +118,9 @@ module.exports = (app) => {
                   if(req.files[0].mimetype !== 'image/png') {
                     console.log(req.files[0].mimetype);
                     const image = _base + 'uploadedMaterial/' + req.files[0].filename;
-                    convertImage(image);
-                    res.json({succes: true});
+                    convertImage(image, (result) => {
+                      res.json({success: true, answer: result});
+                    });
                   } else {
                     const image = _base + 'uploadedMaterial/' + req.files[0].filename;
                     decodeQr(image, (result) => {
