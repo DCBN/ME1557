@@ -1,12 +1,10 @@
 # ME1557 
-// Node required
+// NodeJS & MongoDB required
 
 1. Gå till root (ME1557)
-2. Öppna cmd
-3. Skriv npm install
-4. Skriv npm install webpack -i -g
-5. Skriv webpack
-6. Skriv node app.js
-7. Skriv mongod
-7. Gå till din webbläsare 
-8. I url:en skriv localhost:1337
+2. Se till att du har webpack installerat globalt
+3. Bygg projektet med kommando 'webpack' 
+4. Se till att du har MongoDB körandes i bakgrunden
+5. Kör igång servern med 'node app.js'
+6. Öppna webbläsaren och gå till localhost:8080
+7. You should be good now! 
