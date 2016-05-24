@@ -9,8 +9,11 @@ import './tour.scss';
 
 import themeService from '../../services/themes.service';
 import objectService from '../../services/objects.service';
+import answerService from '../../services/answer.service';
 
-export default angular.module('app.tour', [uirouter, ngCookies,  themeService, objectService])
+import fileUploadDirective from '../../directives/fileUpload.directive';
+
+export default angular.module('app.tour', [uirouter, ngCookies,  themeService, objectService, answerService, fileUploadDirective])
     .config(routing)
     .controller('TourController', TourController)
     .name;
