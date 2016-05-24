@@ -10,13 +10,15 @@
   "license": "ISC",
   "dependencies": {
     "angular": "latest",
-    "angular-ui-router": "latest",
     "angular-cookies": "latest",
+    "angular-ui-router": "latest",
     "body-parser": "^1.15.0",
     "express": "^4.13.4",
     "mongoose": "^4.4.14",
+    "multer": "^1.1.0",
+    "png-js": "*",
     "qrcode-reader": "*",
-    "png-js": "*"
+    "sharp": "^0.15.0"
   },
   "devDependencies": {
     "babel-core": "^6.7.7",
