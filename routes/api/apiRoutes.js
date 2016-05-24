@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const db = require('../../models/models');
 const themeList = db.theme;
 const objectList = db.object;
-
+const fs = require("fs");
 const decodeQr = require('./qrReader');
 const convertImage = require('./imageConversion');
 
@@ -118,13 +118,26 @@ module.exports = (app) => {
                   if(req.files[0].mimetype !== 'image/png') {
                     console.log(req.files[0].mimetype);
                     const image = _base + 'uploadedMaterial/' + req.files[0].filename;
+                    const pngImage = _base + 'uploadedMaterial/' + req.files[0].filename + '.png';
                     convertImage(image, (result) => {
+                      fs.unlink(image, (err) => {
+                        if (err) throw err;
+                        console.log(image + ' deleted!');
+                      });
+                      fs.unlink(pngImage, (err) => {
+                        if(err) throw err;
+                        console.log(pngImage + ' deleted!');
+                      })
                       res.json({success: true, answer: result});
                     });
                   } else {
                     const image = _base + 'uploadedMaterial/' + req.files[0].filename;
                     decodeQr(image, (result) => {
-                     res.json({success: true, answer: result}); 
+                      fs.unlink(image, (err) => {
+                        if (err) throw err;
+                        console.log(image + ' deleted!');
+                      });
+                      res.json({success: true, answer: result}); 
                     });
                   }
                 });
