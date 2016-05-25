@@ -12,7 +12,7 @@ class TourController {
         console.log(JSON.parse(this.$cookies.get('someCookie')));
         this.questionCookie = JSON.parse(this.$cookies.get('someCookie'));
         this.filterQuestions(this.questionCookie)
-      } 
+      }
       if(!$cookies.get('someCookie')) {
         themeService.getTheme(param).then((result) => {
           let theme = this.theme;

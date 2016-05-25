@@ -137,7 +137,7 @@ module.exports = (app) => {
                         if (err) throw err;
                         console.log(image + ' deleted!');
                       });
-                      res.json({success: true, answer: result}); 
+                      res.json({success: true, answer: result});
                     });
                   }
                 });
