@@ -1,4 +1,3 @@
-
 <div class="header">
     <div class="headerContent">
         <input ng-model="gallery.searchValue" ng-keypress="gallery.searchById($event)" type="search" placeholder=" Sök"  class="search"/>
@@ -7,7 +6,9 @@
 <div ng-repeat="object in gallery.objects" id="objBlock">
     <hr>
     <H1 class="middleText"> {{object.name}} </h1>
-    <div class="parent"><img src="{{object.imgurl}}" alt="Object image"/></div>
+    <div class="parent">
+        <img src="{{object.imgurl}}" alt="Object image"/>
+    </div>
     <h3 class="middleText"> {{object.desc}} </h3>
     <p class="middleText">Tags: </p>
     <div ng-repeat="tag in object.tags" class="middleText">
@@ -15,5 +16,3 @@
        <hr>
     </div>
 </div>
-
-
