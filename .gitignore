@@ -42,6 +42,6 @@ public
 .DS_Store
 uploadedMaterial
 examinationsText
-!examinationsText/*.tex
-!examinationsText/*.pdf
-!examinationsText/*.jpg
+!/*.tex
+!*.pdf
+!*.jpg
