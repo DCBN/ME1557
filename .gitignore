@@ -41,7 +41,9 @@ public
 .tern-port
 .DS_Store
 uploadedMaterial
-examinationsText
-!/*.tex
-!*.pdf
-!*.jpg
+examinationsText/*.log
+examinationsText/*.fls
+examinationsText/*.toc
+examinationsText/*.out
+examinationsText/*.aux
+examinationsText/*.fdb_latexmk
