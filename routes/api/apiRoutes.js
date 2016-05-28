@@ -105,7 +105,8 @@ module.exports = (app) => {
                     if(objects) {
                       shuffle(objects);
                       if(objects.length > 8) {
-                        objects.splice(0, 6);
+                        shuffle(objects);
+                        objects.pop();
                         console.log(objects.length);
                       }
                       res.status(200).json(objects);
@@ -121,7 +122,8 @@ module.exports = (app) => {
                     if(objects) {
                       shuffle(objects);
                       if(objects.length > 8) {
-                        objects.splice(0, 6);
+                        shuffle(objects);
+                        objects.pop();
                         console.log(objects.length);
                       }
                       res.status(200).json(objects);
