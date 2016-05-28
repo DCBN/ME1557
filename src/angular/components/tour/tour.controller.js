@@ -2,19 +2,19 @@ class TourController {
   constructor($stateParams, $location, $cookies, themeService, objectService, answerService) {
     this.$cookies = $cookies;
     this.answerService = answerService;
-    const param = $stateParams.theme;
-    if(param === "" || !param || typeof param === "undefined") {
+    this.param = $stateParams.theme;
+    if(this.param === "" || !this.param || typeof this.param === "undefined") {
       $location.path('/tour/theme');
     } else {
       this.themeService = themeService;
       this.objectService = objectService;
-      if(this.$cookies.get('someCookie')) {
-        console.log(JSON.parse(this.$cookies.get('someCookie')));
-        this.questionCookie = JSON.parse(this.$cookies.get('someCookie'));
+      if(window.sessionStorage.getItem(this.param)) {
+        console.log(JSON.parse(window.sessionStorage.getItem(this.param)));
+        this.questionCookie = JSON.parse(window.sessionStorage.getItem(this.param));
         this.filterQuestions(this.questionCookie)
-      } 
-      if(!$cookies.get('someCookie')) {
-        themeService.getTheme(param).then((result) => {
+      }
+      if(!window.sessionStorage.getItem(this.param)) {
+        themeService.getTheme(this.param).then((result) => {
           let theme = this.theme;
           theme = result.data[0];
           let cookie = {};
@@ -24,8 +24,9 @@ class TourController {
               let question = "question" + Math.floor(i + 1);
               cookie[question] = {"objectData": objects.data[i], "complete": false};
             };
-            this.$cookies.put('someCookie', JSON.stringify(cookie));
-            this.questionCookie = JSON.parse(this.$cookies.get('someCookie'));
+            window.sessionStorage.setItem(this.param, JSON.stringify(cookie));
+            console.log(JSON.parse(window.sessionStorage.getItem(this.param)));
+            this.questionCookie = JSON.parse(window.sessionStorage.getItem(this.param));
             this.filterQuestions(this.questionCookie);
           });
         });
@@ -59,7 +60,7 @@ class TourController {
       console.log(result);
       if(this.qrAnswer === this.questionAnswer) {
         this.questionCookie[this.questionKey].complete = true;
-        this.$cookies.put('someCookie', JSON.stringify(this.questionCookie));
+        window.sessionStorage.setItem(this.param, JSON.stringify(cookie));
         this.filterQuestions(this.questionCookie);
       } else {
         console.log('wrong answer');
