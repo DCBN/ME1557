@@ -49,7 +49,6 @@ class TourController {
     this.questionName = question.objectData.name;
     this.questionImg = question.objectData.imgurl;
     this.questionDesc = question.objectData.desc;
-    this.questionAnswer = question.objectData.answer;
     this.questionKey = questionKey;
   }
 
@@ -58,9 +57,9 @@ class TourController {
     this.answerService.post(url, this.qrImage).then((result) => {
       this.qrAnswer = result.answer;
       console.log(result);
-      if(this.qrAnswer === this.questionAnswer) {
+      if(this.qrAnswer === this.questionName) {
         this.questionCookie[this.questionKey].complete = true;
-        window.sessionStorage.setItem(this.param, JSON.stringify(cookie));
+        window.sessionStorage.setItem(this.param, JSON.stringify(this.questionCookie));
         this.filterQuestions(this.questionCookie);
       } else {
         console.log('wrong answer');
