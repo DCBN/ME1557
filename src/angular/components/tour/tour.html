@@ -1,11 +1,11 @@
 <div>
   <div class="questionHeader">
     <div class="questionName">
-      {{ tour.questionName }}
+  <h2>    {{ tour.questionName }}</h2>
     </div>
-    <img class="questionImg" style="height: 100px; width: 100px; background-size:cover;" src="{{ tour.questionImg }}" alt="questionImg">
+    <img class="questionImg" src="{{ tour.questionImg }}" alt="questionImg">
     <div class="questionDesc">
-      {{ tour.questionDesc }}
+    <p>  {{ tour.questionDesc }} </p>
     </div>
   </div>
   <input type="file" accept="image/*;capture=camera" file-upload="tour.qrImage.file"/><button ng-click="tour.postQr()">Post image</button>
