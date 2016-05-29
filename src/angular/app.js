@@ -8,6 +8,7 @@ import gallery from './components/gallery';
 import tour from './components/tour';
 import theme from './components/theme';
 import admin from './components/admin';
+import completed from './components/completed';
 
 import './core.scss';
-angular.module('app', [uirouter, home, about, gallery, tour, theme, admin]).config(routing);
+angular.module('app', [uirouter, home, about, gallery, tour, theme, admin, completed]).config(routing);

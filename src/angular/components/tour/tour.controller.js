@@ -1,10 +1,10 @@
 class TourController {
   constructor($stateParams, $location, $cookies, themeService, objectService, answerService) {
-    this.$cookies = $cookies;
+    this.$location = $location;
     this.answerService = answerService;
     this.param = $stateParams.theme;
     if(this.param === "" || !this.param || typeof this.param === "undefined") {
-      $location.path('/tour/theme');
+      this.$location.path('/tour/theme');
     } else {
       this.themeService = themeService;
       this.objectService = objectService;
@@ -42,7 +42,10 @@ class TourController {
       }
     }
     // TODO: Redirect to main page and fix modals
-    console.log('All done!');
+    questions.done = true;
+    window.sessionStorage.setItem(this.param, JSON.stringify(questions));
+    console.log(JSON.parse(window.sessionStorage.getItem(this.param)));
+    this.$location.path('/tour/theme/' + this.param + '/completed');
   }
 
   displayCurrentQuestion(question, questionKey) {

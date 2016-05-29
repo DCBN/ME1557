@@ -114,7 +114,7 @@ module.exports = (app) => {
                       next();
                     }
                   });
-                } else {
+                } if(typeof req.query.tags === 'string') {
                   objectList.find({tags: req.query.tags}, (err, objects) => {
                     if(err) {
                       console.log(err);
@@ -134,6 +134,8 @@ module.exports = (app) => {
                       next();
                     }
                   });
+                } else {
+                  next();
                 }
               });
 
