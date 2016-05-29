@@ -95,8 +95,6 @@ module.exports = (app) => {
             app.route('/getObjectsByTag')
               .get((req, res, next) => {
                 //console.log(req.query.tags);
-                const someTags = ['Fartyg', 'Something', 'Else'];
-                console.log(someTags);
                 if(typeof req.query.tags === 'array') {
                   objectList.find({tags: { $in: someTags}}, (err, objects) => {
                     if(err) {
@@ -105,9 +103,11 @@ module.exports = (app) => {
                     if(objects) {
                       shuffle(objects);
                       if(objects.length > 8) {
-                        shuffle(objects);
-                        objects.pop();
-                        console.log(objects.length);
+                        for(var i = objects.length - 1; i >= 8; i--) {
+                          shuffle(objects);
+                          objects.splice(i, 1);
+                          console.log(objects.length);
+                        }
                       }
                       res.status(200).json(objects);
                     } else {
@@ -122,9 +122,11 @@ module.exports = (app) => {
                     if(objects) {
                       shuffle(objects);
                       if(objects.length > 8) {
-                        shuffle(objects);
-                        objects.pop();
-                        console.log(objects.length);
+                        for(var i = objects.length - 1; i >= 8; i--) {
+                          shuffle(objects);
+                          objects.splice(i, 1);
+                          console.log(objects.length);
+                        }
                       }
                       res.status(200).json(objects);
                     }
