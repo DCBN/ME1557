@@ -11,6 +11,7 @@ class GalleryController {
                 searchTags = searchTags.split(", ");
                 this.objectService.getObjectsByTag(searchTags).then((objects) => {
                     this.objects = objects.data;
+                    console.log(this.objects);
                 });
             } else {
                 this.objectService.getAll().then(result => this.objects = result.data);
