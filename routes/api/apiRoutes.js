@@ -96,19 +96,13 @@ module.exports = (app) => {
               .get((req, res, next) => {
                 //console.log(req.query.tags);
                 const someTags = ['Fartyg', 'Something', 'Else'];
-                console.log(someTags);
-                if(typeof req.query.tags === 'array') {
-                  objectList.find({tags: { $in: someTags}}, (err, objects) => {
+                console.log(typeof someTags);
+                if(typeof req.query.tags === 'object') {
+                  objectList.find({tags: { $in: req.query.tags}}, (err, objects) => {
                     if(err) {
                       console.log(err);
                     }
                     if(objects) {
-                      shuffle(objects);
-                      if(objects.length > 8) {
-                        shuffle(objects);
-                        objects.pop();
-                        console.log(objects.length);
-                      }
                       res.status(200).json(objects);
                     } else {
                       next();
