@@ -90,31 +90,25 @@ module.exports = (app) => {
                 }
               });
             });
-
+            
             // Route for retrieving objects by tags
             app.route('/getObjectsByTag')
               .get((req, res, next) => {
                 //console.log(req.query.tags);
-                if(typeof req.query.tags === 'array') {
-                  objectList.find({tags: { $in: someTags}}, (err, objects) => {
+                const someTags = ['Fartyg', 'Something', 'Else'];
+                console.log(typeof someTags);
+                if(typeof req.query.tags === 'object') {
+                  objectList.find({tags: { $in: req.query.tags}}, (err, objects) => {
                     if(err) {
                       console.log(err);
                     }
                     if(objects) {
-                      shuffle(objects);
-                      if(objects.length > 8) {
-                        for(var i = objects.length - 1; i >= 8; i--) {
-                          shuffle(objects);
-                          objects.splice(i, 1);
-                          console.log(objects.length);
-                        }
-                      }
                       res.status(200).json(objects);
                     } else {
                       next();
                     }
                   });
-                } if(typeof req.query.tags === 'string') {
+                } else {
                   objectList.find({tags: req.query.tags}, (err, objects) => {
                     if(err) {
                       console.log(err);
@@ -122,11 +116,9 @@ module.exports = (app) => {
                     if(objects) {
                       shuffle(objects);
                       if(objects.length > 8) {
-                        for(var i = objects.length - 1; i >= 8; i--) {
-                          shuffle(objects);
-                          objects.splice(i, 1);
-                          console.log(objects.length);
-                        }
+                        shuffle(objects);
+                        objects.pop();
+                        console.log(objects.length);
                       }
                       res.status(200).json(objects);
                     }
@@ -134,12 +126,12 @@ module.exports = (app) => {
                       next();
                     }
                   });
-                } else {
-                  next();
                 }
               });
 
-              app.route('/qrUpload')
+
+
+                          app.route('/qrUpload')
                 .post((req, res, next) => {
                   var answer;
                   if(req.files[0].mimetype !== 'image/png') {
